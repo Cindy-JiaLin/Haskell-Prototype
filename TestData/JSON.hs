@@ -8,12 +8,6 @@ import Main.Similarity
 import Main.Omega
 import Main.Solution
 
-import Main.Application.Apply
-import Main.Application.ApplySolution
-import Main.Application.ApplyValue
-import Main.Application.ApplyDelta
-import Main.Application.Orig
-import Main.Application.Targ
 ------------------------------------------------------
 {-
 -- JSON Example http://json.org/example.html
@@ -139,8 +133,6 @@ JObject [("menu",
 -}
 delta_json_11 = ω json1 json1 1
 
-intend_json1 = applyForward json1 (getDelta delta_json_11)
-
 {-
 
 *TestData.JSON> delta_json_11
@@ -156,25 +148,6 @@ intend_json1 = applyForward json1 (getDelta delta_json_11)
              }
     )}
 ,1.0)
-
-*TestData.JSON> intend_json1
-JObject [("menu",
-         JObject [("id",JString "file"),
-                  ("value",JString "File"),
-                  ("popup",
-                   JObject [("menuitem1",
-                            JArray [JObject [("value",JString "New"),("onclick",JString "CreateNewDoc()")],
-                                    JObject [("value",JString "Open"),("onclick",JString "OpenDoc()")],
-                                    JObject [("value",JString "Close"),("onclick",JString "CloseDoc()")]
-                                   ]
-                           )]
-                  )
-                ]
-         )
-        ]
-*TestData.JSON> eq json1 intend_json1
-True
-
 -}
 
 delta_json_12 = ω json1 json2 1
@@ -232,55 +205,4 @@ delta_json_12 = ω json1 json2 1
 ,0.9268588137009189)
 (0.34 secs, 84,757,616 bytes)
 -}
-
-json2' = applyForward json1 (getDelta delta_json_12)
-
-json1' = applyBackward (getDelta delta_json_12) json2
-
-
-{-
-
-*TestData.JSON> json2'
-JObject [("menu",
-         JObject [("popup",
-                  JObject [("menuitem2",
-                           JArray [JObject [("Value",JString "New"),("Onclick",JString "CreateNewDoc()")],
-                                   JObject [("Value",JString "Open"),("Onclick",JString "OpenDoc()")],
-                                   JObject [("Value",JString "Close"),("Onclick",JString "CloseDoc()")]
-                                  ]
-                           )
-                          ]
-                  ),
-                 ("value",JString "file"),
-                 ("id",JString "file")
-                ]
-          )
-        ]
-(5.87 secs, 1,470,965,152 bytes)
-
-*TestData.JSON> eq json2 json2'
-True
-(0.00 secs, 1,614,624 bytes)
-
-*TestData.JSON> json1'
-JObject [("menu",
-          JObject [("popup",
-                    JObject [("menuitem1",
-                              JArray [JObject [("value",JString "New"),("onclick",JString "CreateNewDoc()")],
-                                      JObject [("value",JString "Open"),("onclick",JString "OpenDoc()")],
-                                      JObject [("value",JString "Close"),("onclick",JString "CloseDoc()")]])
-                            ]),
-                   ("value",JString "File"),
-                   ("id",JString "file")
-                  ]
-        )]
-(5.87 secs, 1,465,846,224 bytes)
-
-*TestData.JSON> eq json1 json1'
-True
-(0.00 secs, 1,027,904 bytes)
-
--}
-
-
 

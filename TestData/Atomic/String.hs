@@ -5,7 +5,6 @@ import Main.Delta
 import Main.Similarity
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 -- Test Strings
 
@@ -32,44 +31,3 @@ delta_s1_s3 = ω s1 s3 1
 
 -}
 
-s2' = applyForward s1 (getDelta delta_s1_s2)
-s1' = applyBackward (getDelta delta_s1_s2) s2
-
-s3' = applyForward s1 (getDelta delta_s1_s3)
-
-s1'' = applyBackward (getDelta delta_s1_s3) s3
-
-{-
-*TestData.Atomic.String> s2'
-"colour"
-(0.00 secs, 1,074,264 bytes)
-
-*TestData.Atomic.String> s1'
-"color"
-(0.00 secs, 1,032,768 bytes)
-
-*TestData.Atomic.String> s3'
-"collect"
-(0.00 secs, 1,032,448 bytes)
-
-*TestData.Atomic.String> s1''
-"color"
-(0.00 secs, 1,030,688 bytes)
-
-*TestData.Atomic.String> eq s1 s1'
-True
-(0.00 secs, 1,075,920 bytes)
-
-*TestData.Atomic.String> eq s1 s1''
-True
-(0.00 secs, 1,033,440 bytes)
-
-*TestData.Atomic.String> eq s2 s2'
-True
-(0.00 secs, 1,075,736 bytes)
-
-*TestData.Atomic.String> eq s3 s3'
-True
-(0.00 secs, 1,033,144 bytes)
-
--}

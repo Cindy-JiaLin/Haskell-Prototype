@@ -6,7 +6,6 @@ import Main.Similarity
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 
 list1 = list 1 0 "a b c a b c d"
@@ -83,39 +82,6 @@ delta_u3_u4 = ω u3 u4 1
             )
 ,0.6666666666666666)
 (0.04 secs, 10,394,592 bytes)
-
--}
-
-u2' = applyForward u1 (getDelta delta_u1_u2)
-
-u1' = applyBackward (getDelta delta_u1_u2) u2
-{-
-*TestData.Structured.Union> u2'
-Left [u"c", "a", "a", "b", "c", "d", "a", "b"]
-(0.87 secs, 203,694,608 bytes)
-
-*TestData.Structured.Union> eq u2 u2'
-True
-(0.00 secs, 1,032,768 bytes)
-
-*TestData.Structured.Union> u1'
-Left ["a", "b", "c", "a", "b", "c", "d"]
-(1.52 secs, 361,753,376 bytes)
-
-*TestData.Structured.Union> eq u1 u1'
-True
-(0.00 secs, 1,076,136 bytes)
--}
-
-u3' = applyForward u1 (getDelta delta_u1_u3)
-{-
-*TestData.Structured.Union> u3
-Right ["a", "b", "c", "a", "b", "c", "d"]
-(0.00 secs, 1,073,632 bytes)
-
-*TestData.Structured.Union> eq u3 u3'
-True
-(0.02 secs, 4,719,648 bytes)
 
 -}
 

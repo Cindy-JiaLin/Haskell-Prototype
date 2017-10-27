@@ -6,8 +6,6 @@ import Main.Similarity
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Apply
-
 list1 = list 1 0 "a b c a b c d"
 list2 = list 1 0 "c a a b c d a b"
 list3 = list 1 0 "a b c d e f"
@@ -17,9 +15,6 @@ sol2 = setT [list2, list3]
 
 
 delta_sol_12 = ω sol1 sol2 1
-
-sol2' = applyForward sol1 (getDelta delta_sol_12)
-sol1' = applyBackward (getDelta delta_sol_12) sol2
 
 {-
 
@@ -51,26 +46,12 @@ sol1' = applyBackward (getDelta delta_sol_12) sol2
            ]
 ,0.8148148148148148)
 
-*TestData.Structured.Others.SetOfList> sol2'
-{["c", "a", "a", "b", "c", "d", "a", "b"], ["a", "b", "c", "d", "e", "f"]}
-*TestData.Structured.Others.SetOfList> eq sol2 sol2'
-True
-
-*TestData.Structured.Others.SetOfList> sol1'
-{["a", "b", "c", "a", "b", "c", "d"], ["a", "b", "c", "d", "e", "f"]}
-*TestData.Structured.Others.SetOfList> eq sol1 sol1'
-True
-
-
 -}
 
 sol3 = setT [list3, list1]
 sol4 = setT [list3, list2]
 
 delta_sol_34 = ω sol3 sol4 1
-
-sol4' = applyForward sol3 (getDelta delta_sol_34)
-sol3' = applyBackward (getDelta delta_sol_34) sol4
 
 {-
 
@@ -103,16 +84,5 @@ sol3' = applyBackward (getDelta delta_sol_34) sol4
                             ]
            ]
 ,0.5925925925925926)
-
-*TestData.Structured.Others.SetOfList> sol4'
-{["a", "b", "c", "d", "e", "f"], ["c", "a", "a", "b", "c", "d", "a", "b"]}
-*TestData.Structured.Others.SetOfList> eq sol4 sol4'
-True
-
-*TestData.Structured.Others.SetOfList> sol3'
-{["a", "b", "c", "d", "e", "f"], ["a", "b", "c", "a", "b", "c", "d"]}
-*TestData.Structured.Others.SetOfList> eq sol3 sol3'
-True
-
 
 -}

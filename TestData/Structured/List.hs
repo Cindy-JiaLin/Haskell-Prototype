@@ -6,13 +6,6 @@ import Main.Similarity
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Orig
-import Main.Application.Targ
-
-import Main.Application.Apply
-import Main.Application.ApplyValue
-import Main.Application.ApplyDelta
-import Main.Application.ApplySolution
 ------------------------------------------------------------------------------------------------
 -- Test Lists
 
@@ -48,29 +41,6 @@ delta_list1_list2 = ω list1 list2 1
 
 -}
 
-list2' = applyForward list1 (getDelta delta_list1_list2)
-
-list1' = applyBackward (getDelta delta_list1_list2) list2
-
-{-
-
-*TestData.Structured.List> list2'
-["c", "a", "a", "b", "c", "d", "a", "b"]
-(1.11 secs, 236,218,000 bytes)
-
-*TestData.Structured.List> eq list2 list2'
-True
-(0.00 secs, 1,030,632 bytes)
-
-*TestData.Structured.List> list1'
-["a", "b", "c", "a", "b", "c", "d"]
-(1.55 secs, 361,197,768 bytes)
-
-*TestData.Structured.List> eq list1 list1'
-True
-(0.00 secs, 1,072,696 bytes)
-
--}
 -------------------------------------------------------------------------
 listA = lC 1 ['a', 'b', 'c', 'a', 'b', 'c', 'd']
 listB = lC 1 ['c', 'a', 'a', 'b', 'c', 'd', 'a', 'b']
@@ -100,29 +70,6 @@ delta_listA_listB = ω listA listB 1
         ]
 ,0.6666666666666666)
 (0.05 secs, 9,835,072 bytes)
-
--}
-
-listB' = applyForward listA (getDelta delta_listA_listB)
-listA' = applyBackward (getDelta delta_listA_listB) listB
-
-{-
-
-*TestData.Structured.List> listB'
-['c', 'a', 'a', 'b', 'c', 'd', 'a', 'b']
-(0.74 secs, 175,646,376 bytes)
-
-*TestData.Structured.List> eq listB listB'
-True
-(0.00 secs, 1,030,552 bytes)
-
-*TestData.Structured.List> listA'
-['a', 'b', 'c', 'a', 'b', 'c', 'd']
-(1.33 secs, 311,024,008 bytes)
-
-*TestData.Structured.List> eq listA listA'
-True
-(0.00 secs, 1,072,520 bytes)
 
 -}
 

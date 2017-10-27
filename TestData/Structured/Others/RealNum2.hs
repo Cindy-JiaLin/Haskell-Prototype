@@ -9,7 +9,6 @@ import Main.Similarity
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 -- Test Real Numbers
 
@@ -110,9 +109,6 @@ llR2 = listT [l2, l078, l3]
 
 delta_llR_12 = ω llR1 llR2 1
 
-llR2' = applyForward llR1 (getDelta delta_llR_12)
-llR1' = applyBackward (getDelta delta_llR_12) llR2
-
 {-
 
 *TestData.Structured.Others.RealNum2> delta_llR_12
@@ -129,15 +125,6 @@ llR1' = applyBackward (getDelta delta_llR_12) llR2
             ]
 ,0.3999999999999999)
 
-*TestData.Structured.Others.RealNum2> llR2'
-[[2.0], [0.0, 0.78, 0.9], [3.0]]
-*TestData.Structured.Others.RealNum2> eq llR2 llR2'
-True
-
-*TestData.Structured.Others.RealNum2> llR1'
-[[1.0], [2.0], [0.0, 0.81, 1.0, 1.1], [3.1]]
-*TestData.Structured.Others.RealNum2> eq llR1 llR1'
-True
 -}
 
 

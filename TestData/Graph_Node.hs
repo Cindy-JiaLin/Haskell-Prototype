@@ -5,7 +5,6 @@ import Main.Delta
 import Main.Similarity
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------
 
 link :: Double -> String -> T
@@ -49,11 +48,6 @@ graphB = setT [ (node "Dublin" dublinB)
               ]
 
 delta_graph_AB = ω graphA graphB 1
-
-graphB' = applyForward graphA (getDelta delta_graph_AB)
-
-
-graphA' = applyBackward (getDelta delta_graph_AB) graphB
 
 
 {-
@@ -166,39 +160,6 @@ Pair (S 0.0 1 "Dublin")
 ]
 ,0.5538461538461485)
 (3.49 secs, 646,838,664 bytes)
-
--}
-
-
-{-
-
-*TestData.Graph_Node> graphB'
-{("Dublin",{(255.0,"Cork"), (233.3,"Derry"), (209.0,"Galway"), (82.0,"Dundalk")}), 
- ("Derry",{(233.3,"Dublin"), (113.0,"Belfast")}), 
- ("Belfast",{(113.0,"Derry"), (85.0,"Dundalk")}), 
- ("Cork",{(255.0,"Dublin"), (204.0,"Galway")}), 
- ("Galway",{(204.0,"Cork"), (209.0,"Dublin")}), 
- ("Dundalk",{(85.0,"Belfast"), (82.0,"Dublin")})
-}
-(29.08 secs, 6,637,532,384 bytes)
-*TestData.Graph_Node> eq graphB graphB'
-True
-(0.00 secs, 1,577,272 bytes)-}
-
-{-
-
-*TestData.Graph_Node> graphA'
-{("Baile Atha Cliath",{(255.3,"Corcaigh"), (233.3,"Doire"), (208.6,"Gaillimh"), (165.6,"Baile Atha Cliath")}), 
- ("Doire",{(233.3,"Baile Atha Cliath"), (113.0,"Beal Feirste")}), 
- ("Beal Feirste",{(113.0,"Doire"), (165.6,"Baile Atha Cliath")}), 
- ("Corcaigh",{(255.3,"Baile Atha Cliath"), (204.0,"Gaillimh")}), 
- ("Gaillimh",{(204.0,"Corcaigh"), (208.6,"Baile Atha Cliath")})
-}
-(86.71 secs, 20,254,520,920 bytes)
-
-*TestData.Graph_Node> eq graphA graphA'
-True
-(0.00 secs, 1,032,328 bytes)
 
 -}
 

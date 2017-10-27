@@ -5,13 +5,6 @@ import Main.Delta
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Orig
-import Main.Application.Targ
-
-import Main.Application.ApplyValue
-import Main.Application.ApplyDelta
-import Main.Application.ApplySolution
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 --Test Data
 ------------------------------------------------------------------------------------------------
@@ -43,52 +36,3 @@ delta_msetA_msetB = ω msetA msetB 1
 
 -}
 
-msetB' = applyForward msetA (getDelta delta_msetA_msetB)
-
-msetA' = applyBackward (getDelta delta_msetA_msetB) msetB
-
-{-
-
-*TestData.Structured.Multiset> msetB'
-<209.0, 209.0, 233.3, 255.0, 255.0, 82.0>
-(0.05 secs, 13,975,896 bytes)
-
-*TestData.Structured.Multiset> eq msetB msetB'
-True
-(0.00 secs, 1,621,520 bytes)
-
-*TestData.Structured.Multiset> msetA'
-<233.3, 208.6, 255.3, 165.6, 300.0>
-(0.12 secs, 30,527,720 bytes)
-
-*TestData.Structured.Multiset> eq msetA msetA'
-True
-(0.00 secs, 1,620,984 bytes)
-
--}
-
------------------------------------------------------------------------------------------------
-
-msetC = mR 1 0.5 [166.0, 166.0, 209.0, 209.0, 233.0, 255.0, 300.4]
-
-
-next_msetC = applyForward msetC (getDelta delta_msetA_msetB)
-
-prev_msetC = applyBackward (getDelta delta_msetA_msetB) msetC
-
-
-{-
-
-*TestData.Structured.Multiset> msetC
-<300.4, 255.0, 233.0, 209.0, 209.0, 166.0, 166.0>
-(0.00 secs, 1,031,376 bytes)
-
-*TestData.Structured.Multiset> next_msetC
-<209.0, 209.0, 166.0, 209.4, 233.0, 254.7, 82.0, 255.0>
-(0.13 secs, 33,542,632 bytes)
-
-*TestData.Structured.Multiset> prev_msetC
-<166.0, 166.0, 300.4, 233.0, 208.6, 255.3, 165.6, 300.0>
-(0.29 secs, 71,236,384 bytes)
-
--}

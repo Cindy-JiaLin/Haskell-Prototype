@@ -6,7 +6,6 @@ import Main.Similarity
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 -- Test Primitive
 
@@ -68,36 +67,11 @@ delta_p1_p2 = ω p1 p2 1
 (0.01 secs, 1,611,448 bytes)
 -}
 
-p2' = applyForward p1 (fst delta_p1_p2)
-
-p1' = applyBackward (fst delta_p1_p2) p2
-
-{-
-
-*TestData.Structured.Pair> p2'
-(2,(("AB",3),5))
-(0.00 secs, 1,074,296 bytes)
-
-*TestData.Structured.Pair> p1'
-(1,(("ABC",3),4))
-(0.00 secs, 1,074,448 bytes)
-
-*TestData.Structured.Pair> eq p2 p2'
-True
-(0.00 secs, 1,076,008 bytes)
-
-*TestData.Structured.Pair> eq p1 p1'
-True
-(0.00 secs, 1,075,984 bytes)
--}
 
 p3 = Pair int1 (Pair (Pair str2 int3) int4)
 p4 = Pair int2 (Pair (Pair str2 int3) int5)
 
 delta_p3_p4 = ω p3 p4 1
-
-p4' = applyForward p3 (fst delta_p3_p4)
-p3' = applyBackward (fst delta_p3_p4) p4
 
 {-
 
@@ -108,23 +82,6 @@ p3' = applyBackward (fst delta_p3_p4) p4
         )
 ,0.75)
 (0.00 secs, 1,621,088 bytes)
-
-
-*TestData.Structured.Pair> p4'
-(2,(("AB",3),5))
-(0.04 secs, 24,285,624 bytes)
-
-*TestData.Structured.Pair> p3'
-(1,(("AB",3),4))
-(0.00 secs, 1,074,112 bytes)
-
-*TestData.Structured.Pair> eq p4' p4
-True
-(0.00 secs, 1,076,024 bytes)
-
-*TestData.Structured.Pair> eq p3' p3
-True
-(0.00 secs, 1,071,368 bytes)
 
 -}
 

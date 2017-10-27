@@ -5,7 +5,6 @@ import Main.Delta
 import Main.Similarity
 import Main.Omega
 
-import Main.Application.Apply
 ------------------------------------------------------------------------------------------------
 -- Test Real Numbers
 
@@ -57,44 +56,5 @@ delta_r0796_r08 = ω r0796 r08 1
 (Δ_Prim 0.796, ((ƛx.x+4.0000000000000036e-3), (ƛx.x-4.0000000000000036e-3)), 0.8
 ,0.5999999999999996)
 (0.00 secs, 1,030,968 bytes)
-
--}
-applyForward_r1_d12 = applyForward r1 (getDelta delta_r1_r2)
-{-
-
-*TestData.Atomic.RealNum> applyForward_r1_d12
-2.0
-(0.00 secs, 517,944 bytes)
-
--}
-applyForward_r1_d079608 = applyForward r1 (getDelta delta_r0796_r08)
-{-
-
-*TestData.Atomic.RealNum> applyForward_r1_d079608
-1.004
-(0.00 secs, 1,033,952 bytes)
-
--}
-
-applyBackward_r2_d12 = applyBackward (getDelta delta_r1_r2) r2
-
-applyBackward_r2_d079608 = applyBackward (getDelta delta_r0796_r08) r2
-{-
-
-*TestData.Atomic.RealNum> applyBackward_r2_d12
-1.0
-(0.00 secs, 1,030,360 bytes)
-
-*TestData.Atomic.RealNum> applyBackward_r2_d079608
-1.9960000000000002
-(0.00 secs, 1,027,560 bytes)
-
-*TestData.Atomic.RealNum> eq r2 applyForward_r1_d12
-True
-(0.00 secs, 1,033,872 bytes)
-
-*TestData.Atomic.RealNum> eq r1 applyBackward_r2_d12
-True
-(0.00 secs, 1,032,200 bytes)
 
 -}

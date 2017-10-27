@@ -5,7 +5,6 @@ import Main.Delta
 import Main.Solution
 import Main.Omega
 
-import Main.Application.Apply
 -----------------------------------------------------------------------------------------------
 -- Test Mapping 
 
@@ -85,29 +84,5 @@ delta_f_g = ω mapf mapg 1
        ]
 ,0.31111111111110606)
 (0.27 secs, 59,299,280 bytes)
-
--}
-
-mapg' = applyForward mapf (getDelta delta_f_g)
-
-mapf' = applyBackward (getDelta delta_f_g) mapg
-
-{-
-
-*TestData.Structured.Mapping> mapg'
-{(82.0, 81.7), (255.0, 254.7), (233.3, 233.0), (209.0, 208.7)}
-(0.16 secs, 39,760,512 bytes)
-
-*TestData.Structured.Mapping> eq mapg mapg'
-True
-(0.00 secs, 1,072,848 bytes)
-
-*TestData.Structured.Mapping> mapf'
-{(255.3, 255.3), (208.6, 208.6), (233.3, 233.3), (300.0, 300.0), (165.6, 165.6)}
-(0.06 secs, 15,543,008 bytes)
-
-*TestData.Structured.Mapping> eq mapf mapf'
-True
-(0.00 secs, 1,029,280 bytes)
 
 -}
